@@ -193,10 +193,26 @@
     </div>
   </nav>
 
+  
+
   <!-- Home Section -->
   <div class="section active" id="home">
     <div class="card" id="formCard">
       <h2>Start Your Exam</h2>
+
+      <!-- AdSense Ad Unit Inside Form Card -->
+      <div style="margin-bottom: 20px; text-align:center;">
+        <ins class="adsbygoogle"
+             style="display:block; text-align:center;"
+             data-ad-client="ca-pub-4605579560460422"
+             data-ad-slot="YOUR_AD_SLOT_ID_2"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+
       <form method="POST" action="{{ url_for('generate_questions') }}" id="examForm">
         <label for="mode">Mode</label>
         <select name="mode" id="mode" required onchange="updateTopicVisibility()">
