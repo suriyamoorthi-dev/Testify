@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, jsonify
+from flask import Flask, request, render_template, jsonify,redirect, url_for, flash
 from flask_sqlalchemy import SQLAlchemy
 import os
 import random
@@ -12,13 +12,18 @@ import csv
 app = Flask(__name__)
 app.secret_key = "suriya"  # 🔐 Required for sessions and forms
 
+@app.route('/ads.txt')
+def ads():
+    return app.send_static_file('ads.txt')
+
+
 # Database setup
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'questions.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
-API_KEY = "tgp_v1_EPe-j4YVJAAItehj-3vYdCz-nV0AO3A0ow4cJK7joHs"
+API_KEY = "tgp_v1_xBNB02dvPqRWkdOrorqGV3xbQA0jBM2jFHd5i2KiKNw"
 TOGETHER_API_URL = "https://api.together.xyz/v1/completions"
 
 
