@@ -51,22 +51,24 @@ class Question(db.Model):
             },
             "answer": self.answer
         }
-@app.route('/privacy')
+
+@app.route("/about")
+def about():
+    return render_template("about.html")
+@app.route("/privacy")
 def privacy():
-    return render_template('privacy.html')
+    return render_template("privacy.html")
 
-@app.route('/terms')
+@app.route("/terms")
 def terms():
-    return render_template('terms.html')
+    return render_template("terms.html")
 
-@app.route('/contact')
+@app.route("/contact")
 def contact():
-    return render_template('contact.html')
-
-@app.route('/adsense')
+    return render_template("contact.html")
+@app.route("/adsense")
 def adsense():
-    return render_template('adsense.html')
-
+    return render_template("adsense.html")
 
 
 @app.route('/doubt')
