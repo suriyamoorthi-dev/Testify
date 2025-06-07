@@ -2,10 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>AI Doubt Solver</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Doubt Solver | Practice Tricks & Doubts</title>
+  <meta name="description" content="Ask your exam doubts and tricks to our smart AI assistant. Perfect for TNPSC, SSC, Railway, and other competitive exams.">
+
+  <!-- ✅ Google AdSense Auto Ads -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4605579560460422"
+    crossorigin="anonymous"></script>
+
+  <!-- Google Fonts + Bootstrap Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
   <style>
     * { box-sizing: border-box; }
     body {
@@ -17,6 +25,7 @@
       align-items: center;
       justify-content: center;
       min-height: 100vh;
+      flex-direction: column;
     }
 
     .container {
@@ -113,6 +122,14 @@
       animation: spin 1s linear infinite;
     }
 
+    footer {
+      text-align: center;
+      font-size: 14px;
+      color: #6b7280;
+      margin-top: 50px;
+      padding: 20px 10px;
+    }
+
     @keyframes spin {
       to { transform: rotate(360deg); }
     }
@@ -158,6 +175,12 @@
     <div class="spinner" id="spinner"></div>
     <div class="response" id="aiResponse" style="display:none;"></div>
   </div>
+
+  <footer>
+    SmartExam © 2025 | AI Doubt Solver for Government Exam Preparation<br>
+    Built for TNPSC, SSC, Railway, and other competitive exams. <br>
+    This site may contain ads to support our free content.
+  </footer>
 
   <script>
     const form = document.getElementById('askForm');

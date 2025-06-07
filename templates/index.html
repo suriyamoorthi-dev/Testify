@@ -188,30 +188,22 @@
         <a href="javascript:void(0)" onclick="showSection('about')">About</a>
         <a href="javascript:void(0)" onclick="showSection('terms')">Terms</a>
         <a href="javascript:void(0)" onclick="showSection('help')">Help</a>
+        <a href="javascript:void(0)" onclick="showSection('privacy')">Privacy Policy</a>
         <a href="/doubt">AI Assist</a>
       </div>
     </div>
   </nav>
-
-  
 
   <!-- Home Section -->
   <div class="section active" id="home">
     <div class="card" id="formCard">
       <h2>Start Your Exam</h2>
 
-      <!-- AdSense Ad Unit Inside Form Card -->
-      <div style="margin-bottom: 20px; text-align:center;">
-        <ins class="adsbygoogle"
-             style="display:block; text-align:center;"
-             data-ad-client="ca-pub-4605579560460422"
-             data-ad-slot="YOUR_AD_SLOT_ID_2"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
+      <!-- Description above ad -->
+      <p style="text-align:center; font-size: 14px; color: #555; margin-bottom: 10px;">
+        Prepare for government exams with AI-generated questions and mock tests. Start your practice now!
+      </p>
+
 
       <form method="POST" action="{{ url_for('generate_questions') }}" id="examForm">
         <label for="mode">Mode</label>
@@ -321,6 +313,20 @@
         📧 <strong>Need More Help?</strong><br>
         If you face technical issues or want to give feedback, email us at:<br>
         📩 <a href="mailto:edupulse@gmail.com">edupulse@gmail.com</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Privacy Policy Section -->
+  <div class="section" id="privacy">
+    <div class="card">
+      <h2>Privacy Policy</h2>
+      <p>
+        We respect your privacy and are committed to protecting your personal information.<br><br>
+        We do not sell or share your personal data with third parties.<br><br>
+        Our website uses cookies for ads and analytics purposes, in accordance with Google’s policies.<br><br>
+        For more details, please visit Google’s Privacy & Terms page.<br><br>
+        By using our platform, you consent to our privacy practices.
       </p>
     </div>
   </div>
