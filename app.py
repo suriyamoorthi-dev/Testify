@@ -5,6 +5,7 @@ import random
 import re
 import requests
 from io import TextIOWrapper
+from flask import Flask, render_template, request, redirect, url_for, session
 
 import csv
 
@@ -420,6 +421,8 @@ def generate_questions():
                                exam=exam, section=section, topic=None, mode=mode)
     else:
         return "Invalid mode selected", 400
+from flask import session
+import json
 
 @app.route('/submit_exam', methods=['POST'])
 def submit_exam():
@@ -430,24 +433,47 @@ def submit_exam():
     score = 0
     total = len(question_ids)
     weak_tracker = {}
+    results_data = []
 
     for i, qid in enumerate(question_ids):
         user_answer = request.form.get(f"user_answer_{qid}")
         correct = correct_answers[i]
         section = sections[i]
+        q_obj = Question.query.get(int(qid))  # Ensure it's int
 
         if section not in weak_tracker:
             weak_tracker[section] = {'total': 0, 'correct': 0}
-
         weak_tracker[section]['total'] += 1
         if user_answer == correct:
             score += 1
             weak_tracker[section]['correct'] += 1
 
+        results_data.append({
+            'question': q_obj.question_text,
+            'options': {
+                'A': q_obj.option_a,
+                'B': q_obj.option_b,
+                'C': q_obj.option_c,
+                'D': q_obj.option_d,
+            },
+            'correct': correct,
+            'user': user_answer,
+            'is_correct': user_answer == correct
+        })
+
     weak_areas = [sec for sec, data in weak_tracker.items()
                   if data['correct'] / data['total'] < 0.6]
 
-    return render_template("result.html", score=score, total=total, weak_areas=weak_areas)
+    # ✅ Save to session as JSON string
+    session['results_data'] = json.dumps(results_data)  # 💥 DON'T store directly!
+    session['score'] = score
+    session['total'] = total
+    session['weak_areas'] = weak_areas
+
+    return render_template("result.html", score=score, total=total,
+                           weak_areas=weak_areas)
+
+    
 
 @app.route('/admin_upload', methods=['GET', 'POST'])
 def admin_upload():
@@ -532,6 +558,38 @@ def admin_upload():
 
     return render_template('admin_upload.html', exams=exams, sections=sections, topics=topics)
 
+@app.route("/exam", methods=["GET", "POST"])
+def exam():
+    questions = session.get("qs", [])  # already generated questions
+
+    if request.method == "POST":
+        # Loop through questions and store user's selected answers
+        for i, q in enumerate(questions):
+            q["user"] = request.form.get(f"q_{i}")  # Store selected option (A/B/C/D)
+
+        session["qs"] = questions  # Save updated with user's answers
+        return redirect(url_for("review"))
+
+    return render_template("exam.html", questions=questions)
+@app.route('/review_answers')
+def review_answers():
+    import json
+    results_json = session.get('results_data')
+
+    if not results_json:
+        return "No answers found. Please complete the exam first.", 400
+
+    # ✅ Convert string back to list of dicts
+    results_data = json.loads(results_json)
+
+    score = session.get('score', 0)
+    total = session.get('total', 0)
+    weak_areas = session.get('weak_areas', [])
+
+    return render_template("review.html",
+                           results=results_data,
+                           score=score, total=total,
+                           weak_areas=weak_areas)
 
 
 
