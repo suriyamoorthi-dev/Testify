@@ -67,9 +67,18 @@ def terms():
 @app.route("/contact")
 def contact():
     return render_template("contact.html")
+
 @app.route("/adsense")
 def adsense():
     return render_template("adsense.html")
+
+@app.route('/formula')
+def formula():
+    return render_template('formula.html')
+
+@app.route('/trick')
+def trick():
+    return render_template('trick.html')
 
 
 @app.route('/doubt')
