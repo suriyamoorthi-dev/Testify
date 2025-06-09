@@ -79,10 +79,9 @@ def formula():
 @app.route('/trick')
 def trick():
     return render_template('trick.html')
-
-@app.route('/syllabus')
+@app.route("/syllabus")
 def syllabus():
-    return render_template('syllabus.html')
+    return render_template("syllabus.html")
 
 
 @app.route('/doubt')
