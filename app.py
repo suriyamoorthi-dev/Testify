@@ -80,6 +80,10 @@ def formula():
 def trick():
     return render_template('trick.html')
 
+@app.route('/syllabus')
+def syllabus():
+    return render_template('syllabus.html')
+
 
 @app.route('/doubt')
 def doubt_page():
