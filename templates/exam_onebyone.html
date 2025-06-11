@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Practice {{ exam }} - {{ section }} questions. Improve your score with AI-powered exam simulator.">
+  <meta name="description" content="Practice {{ exam }} - {{ section }} questions with AI-powered simulator. Prepare smarter for TNPSC, SSC, UPSC, RRB, and more.">
   <title>{{ exam }} - {{ section }} | SmartExam</title>
 
-  <!-- ✅ Google AdSense Auto Ads -->
+  <!-- ✅ Google AdSense Script -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4605579560460422"
     crossorigin="anonymous"></script>
 
-  <!-- Fonts and Styles -->
+  <!-- Fonts + Styles -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
@@ -29,12 +29,10 @@
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     }
 
-    h2 {
-      text-align: center;
+    h2, h3 {
       color: #1f2937;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
       font-weight: 600;
-      font-size: 1.5rem;
     }
 
     .question-block {
@@ -91,6 +89,11 @@
       background: linear-gradient(to right, #4f46e5, #7c3aed);
     }
 
+    .ads-box {
+      text-align: center;
+      margin: 30px 0;
+    }
+
     footer {
       text-align: center;
       font-size: 14px;
@@ -100,24 +103,34 @@
       color: #6b7280;
     }
 
+    footer a {
+      color: #6b7280;
+      text-decoration: underline;
+      margin: 0 5px;
+    }
+
+    details {
+      margin-bottom: 12px;
+      background: #f9fafb;
+      border-radius: 8px;
+      padding: 10px 15px;
+      border: 1px solid #e5e7eb;
+    }
+
     @media (max-width: 600px) {
       .container {
         padding: 20px 15px;
       }
-
       h2 {
         font-size: 1.25rem;
       }
-
       .question-text {
         font-size: 15px;
       }
-
       label {
         font-size: 14px;
         padding: 10px;
       }
-
       button {
         font-size: 15px;
         padding: 12px;
@@ -127,44 +140,105 @@
 </head>
 <body>
   <div class="container">
-    <h2>{{ exam }} - {{ section }} {% if topic %}- {{ topic }}{% endif %}</h2>
+    <h2>{{ exam }} - {{ section }}{% if topic %} - {{ topic }}{% endif %}</h2>
 
+    <!-- ✅ Top AdSense Unit -->
+    <div class="ads-box">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-4605579560460422"
+           data-ad-slot="YOUR_SLOT_ID"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <!-- ✅ Introductory Section -->
+    <section>
+      <h3 style="color:#4f46e5;">About This Section</h3>
+      <p style="color:#374151;">
+        You're currently practicing questions for <strong>{{ exam }}</strong> - <strong>{{ section }}</strong>
+        {% if topic %} on the topic <strong>{{ topic }}</strong>{% endif %}. These questions are designed to mirror the actual exam pattern and difficulty level. Practicing regularly helps improve time management and accuracy.
+      </p>
+    </section>
+
+    <!-- ✅ How to Use Guide -->
+    <section>
+      <h3 style="color:#4f46e5;">How to Use</h3>
+      <ul style="color:#374151; padding-left: 20px;">
+        <li>Read each question carefully and choose the most appropriate answer.</li>
+        <li>Click "Finish & Submit" once all answers are selected.</li>
+        <li>You’ll receive instant scoring and explanations for each answer.</li>
+        <li>Use the “AI Buddy” on the homepage if you have any doubts.</li>
+      </ul>
+    </section>
+
+    <!-- ✅ Pro Tips Section -->
+    <section>
+      <h3 style="color:#4f46e5;">Smart Preparation Tips</h3>
+      <ul style="color:#374151; padding-left: 20px;">
+        <li>Focus on weak topics by filtering subtopics in the main menu.</li>
+        <li>Use a timer while practicing to simulate real exam pressure.</li>
+        <li>Review your wrong answers after every test to improve retention.</li>
+        <li>Practice daily — even 15 questions per day builds strong momentum.</li>
+      </ul>
+    </section>
+
+    <!-- ✅ Exam Form -->
     <form method="POST" action="/submit_exam">
       {% for q in questions %}
         <div class="question-block">
           <div class="question-text">Q{{ loop.index }}: {{ q.question }}</div>
 
-          <!-- Hidden inputs -->
           <input type="hidden" name="question_id" value="{{ q.id }}">
           <input type="hidden" name="correct_answer" value="{{ q.answer }}">
           <input type="hidden" name="section" value="{{ q.section }}">
 
-          <!-- Options -->
-          <label>
-            <input type="radio" name="user_answer_{{ q.id }}" value="A" required />
-            A. {{ q.options.A }}
-          </label>
-          <label>
-            <input type="radio" name="user_answer_{{ q.id }}" value="B" />
-            B. {{ q.options.B }}
-          </label>
-          <label>
-            <input type="radio" name="user_answer_{{ q.id }}" value="C" />
-            C. {{ q.options.C }}
-          </label>
-          <label>
-            <input type="radio" name="user_answer_{{ q.id }}" value="D" />
-            D. {{ q.options.D }}
-          </label>
+          <label><input type="radio" name="user_answer_{{ q.id }}" value="A" required> A. {{ q.options.A }}</label>
+          <label><input type="radio" name="user_answer_{{ q.id }}" value="B"> B. {{ q.options.B }}</label>
+          <label><input type="radio" name="user_answer_{{ q.id }}" value="C"> C. {{ q.options.C }}</label>
+          <label><input type="radio" name="user_answer_{{ q.id }}" value="D"> D. {{ q.options.D }}</label>
         </div>
       {% endfor %}
 
       <button type="submit">Finish & Submit</button>
     </form>
 
+    <!-- ✅ FAQ Section -->
+    <section style="margin-top: 40px;">
+      <h3 style="color:#4f46e5;">Frequently Asked Questions</h3>
+      <details>
+        <summary><strong>Is this free to use?</strong></summary>
+        <p>Yes! All practice sets and explanations are 100% free for students.</p>
+      </details>
+      <details>
+        <summary><strong>Can I use this on mobile?</strong></summary>
+        <p>Absolutely. Our site is fully mobile-optimized for all devices.</p>
+      </details>
+      <details>
+        <summary><strong>How is my score calculated?</strong></summary>
+        <p>Your score is based on correct answers and includes negative marking where applicable.</p>
+      </details>
+      <details>
+        <summary><strong>How do I ask a doubt?</strong></summary>
+        <p>Go to the <a href="/doubt" style="color:#6366f1;">AI Buddy</a> page to ask your questions and get instant help.</p>
+      </details>
+    </section>
+
+    <!-- ✅ Bottom AdSense Unit -->
+    <div class="ads-box">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-4605579560460422"
+           data-ad-slot="YOUR_SLOT_ID"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
     <footer>
-      SmartExam © 2025 | Practice makes perfect. Improve your knowledge daily.<br>
-      Built for TNPSC, SSC, Railway & more competitive exams.
+      Testifyy © 2025 | Practice makes perfect.<br>
+      <a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a>
     </footer>
   </div>
 </body>

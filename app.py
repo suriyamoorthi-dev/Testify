@@ -56,6 +56,11 @@ class Question(db.Model):
 @app.route("/about")
 def about():
     return render_template("about.html")
+
+@app.route("/cutoff")
+def cutoff():
+    return render_template("cutoff.html")
+
 @app.route("/privacy")
 def privacy():
     return render_template("privacy.html")
@@ -82,6 +87,8 @@ def trick():
 @app.route("/syllabus")
 def syllabus():
     return render_template("syllabus.html")
+
+
 
 
 @app.route('/doubt')
@@ -112,6 +119,8 @@ def ask_ai():
             f"You are an expert exam coach. Provide 5 useful shortcut tricks or memory hacks for solving questions fast "
             f"on the topic '{topic}' in government exams like TNPSC, SSC, or Railway.\n\n"
             f"Each trick should be practical and beginner-friendly.\n"
+           f" All questions must be strictly based on the **Indian syllabus, current exam pattern, and standards followed by Indian competitive exams** like SSC, RRB, UPSC, TNPSC, etc.\n\n"
+
         )
     else:
         return jsonify({"error": "Invalid mode. Use 'doubt' or 'trick'."}), 400
@@ -153,6 +162,36 @@ def ask_ai():
 
 
 import json
+@app.route('/start-exam', methods=['GET'])
+def start_exam_page():
+    exams = ['SSC', 'TNPSC', 'Railway', 'UPSC']
+    sections = {
+        'SSC': ['CGL', 'CHSL'],
+        'TNPSC': ['Group 1', 'Group 2', 'Group 3', 'Group 4'],
+        'Railway': ['ALP', 'Group D'],
+        'UPSC': ['Prelims', 'Mains']
+    }
+    sub_topics = {
+        'SSC': {
+            'CGL': ['Reasoning', 'Quantitative Aptitude'],
+            'CHSL': ['English', 'General Awareness']
+        },
+        'TNPSC': {
+            'Group 1': ['History', 'Geography', 'Polity', 'Aptitude', 'Economy', 'Reasoning', 'Tamil'],
+            'Group 2': ['History', 'Geography', 'Polity', 'Aptitude', 'Economy', 'Reasoning', 'Tamil'],
+            'Group 3': ['History', 'Geography', 'Polity', 'Aptitude', 'Economy', 'Reasoning', 'Tamil'],
+            'Group 4': ['History', 'Geography', 'Tamil', 'Polity', 'Economy'],
+        },
+        'Railway': {
+            'ALP': ['Physics', 'Technical'],
+            'Group D': ['Current Affairs', 'Biology']
+        },
+        'UPSC': {
+            'Prelims': ['CSAT', 'General Studies'],
+            'Mains': ['Essay', 'Ethics']
+        }
+    }
+    return render_template("start-exam.html", exams=exams, sections=sections, sub_topics=json.dumps(sub_topics))
 
 
 @app.route('/')
@@ -185,14 +224,16 @@ def index():
         }
     }
     return render_template("index.html", exams=exams, sections=sections, sub_topics=json.dumps(sub_topics))
+
 def generate_ai_questions(exam, section, topic=None, count=20, retries=0):
     MAX_RETRIES = 3
 
     # ✅ Prompt generation
     if exam == "TNPSC":
         topic_line = f'"{topic}" தலைப்பில் ' if topic else ''
-        prompt = f"""
-{section} பிரிவுக்கான TNPSC தேர்விற்கு {topic_line}{count} தமிழ் பன்மை தேர்வுக் கேள்விகள் (MCQ) உருவாக்கவும்.
+        prompt = f""" 
+{section} பிரிவுக்கான TNPSC தேர்விற்கு {topic_line}{count} தமிழ் பன்மை தேர்வுக் கேள்விகள் (MCQ) இந்திய நெறிமுறைகள் மற்றும் பாடத்திட்டத்தின் அடிப்படையில் உருவாக்கவும்.
+
 
 தொடரமைப்பு:
 
@@ -208,7 +249,9 @@ Q{count} வரை தொடரவும்.
 """
     else:
         prompt = f"""
-Generate {count} multiple-choice questions for {exam} exam in {section} section{" on topic " + topic if topic else ""}.
+Generate {count} multiple-choice questions for the **{exam}** exam under the **{section}** section{" on topic: " + topic if topic else ""}.
+All questions must be strictly based on the **Indian syllabus, current exam pattern, and standards followed by Indian competitive exams** like SSC, RRB, UPSC, TNPSC, etc.
+
 Format:
 Q1: question text
 A: option A

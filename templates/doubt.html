@@ -10,7 +10,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4605579560460422"
     crossorigin="anonymous"></script>
 
-  <!-- Google Fonts + Bootstrap Icons -->
+  <!-- Fonts + Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
@@ -18,21 +18,20 @@
     * { box-sizing: border-box; }
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to right top, #e0e7ff, #c7d2fe, #a5b4fc);
+      background: linear-gradient(to top right, #f0f9ff, #e0f2fe);
       margin: 0;
       padding: 20px;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
       flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
     }
 
     .container {
       background: white;
-      padding: 35px 30px;
+      padding: 40px 30px;
       border-radius: 20px;
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
       max-width: 600px;
       width: 100%;
       animation: fadeIn 0.5s ease-in-out;
@@ -42,19 +41,18 @@
       text-align: center;
       color: #4f46e5;
       margin-bottom: 25px;
-      font-size: 30px;
+      font-size: 32px;
     }
 
     label {
-      display: block;
-      margin-top: 20px;
       font-weight: 600;
       color: #374151;
+      margin-top: 20px;
     }
 
     .input-group {
       position: relative;
-      margin-top: 8px;
+      margin-top: 10px;
     }
 
     .input-group i {
@@ -67,12 +65,11 @@
 
     input, select {
       width: 100%;
-      padding: 14px 14px 14px 40px;
-      border-radius: 12px;
+      padding: 14px 14px 14px 42px;
+      border-radius: 10px;
       border: 1px solid #d1d5db;
       font-size: 16px;
       background-color: #f9fafb;
-      transition: border-color 0.3s ease;
     }
 
     input:focus, select:focus {
@@ -85,30 +82,16 @@
       color: white;
       border: none;
       border-radius: 12px;
-      padding: 15px;
-      font-size: 17px;
+      padding: 16px;
+      font-size: 18px;
       font-weight: 600;
       margin-top: 30px;
       width: 100%;
       cursor: pointer;
-      transition: background 0.3s ease;
     }
 
     button:hover {
       background: linear-gradient(to right, #4f46e5, #7c3aed);
-    }
-
-    .response {
-      margin-top: 25px;
-      background: #f0f9ff;
-      padding: 20px;
-      border-radius: 12px;
-      color: #1e293b;
-      font-size: 16px;
-      line-height: 1.6;
-      border-left: 4px solid #38bdf8;
-      animation: fadeIn 0.3s ease;
-      white-space: pre-line;
     }
 
     .spinner {
@@ -122,37 +105,74 @@
       animation: spin 1s linear infinite;
     }
 
+    .response {
+      margin-top: 25px;
+      background: #f0fdf4;
+      padding: 20px;
+      border-radius: 12px;
+      color: #065f46;
+      font-size: 16px;
+      line-height: 1.6;
+      border-left: 5px solid #10b981;
+      white-space: pre-line;
+    }
+
+    .ads-box {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .how-to-use, .sample-content, .about {
+      margin-top: 40px;
+      max-width: 600px;
+    }
+
+    .how-to-use {
+      background: #fefce8;
+      border-left: 5px solid #facc15;
+      padding: 20px;
+      border-radius: 12px;
+    }
+
+    .sample-box {
+      background: #f1f5f9;
+      padding: 15px;
+      border-left: 5px solid #3b82f6;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .sample-box.yellow {
+      background: #fef9c3;
+      border-left-color: #facc15;
+    }
+
+    .about {
+      background: #ecfdf5;
+      padding: 20px;
+      border-left: 5px solid #10b981;
+      border-radius: 12px;
+      color: #334155;
+      line-height: 1.7;
+    }
+
     footer {
       text-align: center;
       font-size: 14px;
       color: #6b7280;
-      margin-top: 50px;
-      padding: 20px 10px;
+      margin-top: 40px;
     }
 
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-
+    @keyframes spin { to { transform: rotate(360deg); } }
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
-    }
-
-    @media (max-width: 600px) {
-      .container {
-        padding: 25px 20px;
-      }
-
-      h2 {
-        font-size: 24px;
-      }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h2>🧠 AI Doubt Solver</h2>
+    <h2><i class="bi bi-lightbulb"></i> AI Doubt Solver</h2>
     <form id="askForm">
       <label for="topic">📚 Topic / Doubt</label>
       <div class="input-group">
@@ -174,23 +194,65 @@
 
     <div class="spinner" id="spinner"></div>
     <div class="response" id="aiResponse" style="display:none;"></div>
-  </div>
-  <div class="how-to-use" style="margin-top: 40px; background: #fefce8; border-left: 5px solid #facc15; padding: 20px; border-radius: 12px;">
-  <h3 style="margin-top: 0; color: #92400e;">📖 How to Use</h3>
-  <ul style="padding-left: 20px; color: #78350f;">
-    <li><strong>Step 1:</strong> Enter a <b>topic or doubt</b> like “Time & Work shortcut” or “What is LCM?”</li>
-    <li><strong>Step 2:</strong> Choose the <b>mode</b> — select “Trick” for shortcut tricks or “Doubt” for explanations.</li>
-    <li><strong>Step 3:</strong> Click <b>Ask AI</b> to get your answer instantly.</li>
-    <li><strong>Example:</strong> Try typing <i>“Percentage shortcut”</i> with mode “Trick”.</li>
-    <li>This tool is useful for <b>TNPSC, SSC, Railway, UPSC</b> and other exams.</li>
-  </ul>
-</div>
 
+    <!-- Mid-page AdSense Unit -->
+    <div class="ads-box">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-4605579560460422"
+           data-ad-slot="1234567891"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <!-- 📖 How to Use -->
+    <div class="how-to-use">
+      <h3>📖 How to Use</h3>
+      <ul>
+        <li><strong>Step 1:</strong> Type a <b>topic or doubt</b> like “LCM shortcut”</li>
+        <li><strong>Step 2:</strong> Choose <b>Trick</b> or <b>Doubt</b></li>
+        <li><strong>Step 3:</strong> Click <b>Ask AI</b> to get answers instantly</li>
+        <li><strong>Use it for:</strong> TNPSC, SSC, RRB, Banking, UPSC, etc.</li>
+      </ul>
+    </div>
+
+    <!-- 🌟 Sample Tricks & Doubts -->
+    <div class="sample-content">
+      <h3 style="color: #1e3a8a;">🌟 Sample Tricks & Explanations</h3>
+      <div class="sample-box">
+        <strong>Q:</strong> How to calculate LCM quickly?<br>
+        <strong>A:</strong> Use prime factorization, then take the highest powers of all primes. Shortcut: For 12 & 18 → LCM = 2²×3² = 36.
+      </div>
+      <div class="sample-box yellow">
+        <strong>Q:</strong> Shortcut for Percentage Increase?<br>
+        <strong>A:</strong> % Increase = (Increase ÷ Original) × 100. Shortcut: Round to nearest 10 and adjust mentally.
+      </div>
+    </div>
+
+    <!-- 📘 About -->
+    <div class="about">
+      <h3>📘 About AI Doubt Solver</h3>
+      <p>
+        AI Doubt Solver is a free tool designed for competitive exam aspirants across India. From math shortcuts to tricky reasoning explanations, this AI assistant helps you master concepts fast. Whether you're preparing for TNPSC, SSC, Railway, or UPSC exams, simply type your question, choose the mode, and get instant, clear answers. Learning smart starts here.
+      </p>
+    </div>
+
+    <!-- Bottom AdSense -->
+    <div class="ads-box">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-4605579560460422"
+           data-ad-slot="1234567890"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+  </div>
 
   <footer>
-    SmartExam © 2025 | AI Doubt Solver for Government Exam Preparation<br>
-    Built for TNPSC, SSC, Railway, and other competitive exams. <br>
-    This site may contain ads to support our free content.
+    Testifyy  © 2025 | AI-Powered Doubt Solver for Government Exam Prep<br>
+    This site displays ads to support free learning.
   </footer>
 
   <script>
@@ -200,7 +262,6 @@
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-
       responseDiv.style.display = 'none';
       responseDiv.innerText = '';
       spinner.style.display = 'block';
@@ -225,7 +286,6 @@
         spinner.style.display = 'none';
       }
     });
-    
   </script>
 </body>
 </html>

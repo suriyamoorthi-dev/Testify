@@ -2,301 +2,304 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AI Exam Simulator | Government Exam Practice</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Exam Simulator | Testifyy</title>
 
-  <!-- ✅ SEO Meta Tags -->
-  <meta name="description" content="AI-powered exam simulator for TNPSC, SSC, Railway, and UPSC with practice mode, mock tests, and AI assistant.">
-  <meta name="keywords" content="TNPSC, SSC, UPSC, Railway, exam simulator, mock test, AI exam, practice test">
-  <meta name="author" content="Testify Team">
+  <!-- SEO -->
+  <meta name="description" content="Prepare for TNPSC, UPSC, SSC & Railway exams with AI-powered mock tests and real-time doubt assistant." />
+  <meta name="keywords" content="TNPSC, SSC, UPSC, Railway, AI exam simulator, Mock Test, Practice Test" />
+  <meta name="author" content="Testifyy Team" />
+  <link rel="icon" href="/static/favicon.ico" type="image/x-icon" />
+  <meta property="og:title" content="AI Exam Simulator | Testifyy" />
+  <meta property="og:description" content="Prepare smarter with AI assistance. TNPSC, UPSC, SSC & Railway exams covered." />
+  <meta property="og:image" content="/static/og-banner.jpg" />
 
-  <!-- ✅ Google Fonts -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
 
-  <!-- ✅ Google AdSense (Auto Ads) -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4605579560460422" crossorigin="anonymous"></script>
+  <!-- AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4605579560460422"
+    crossorigin="anonymous"></script>
 
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
-      background: linear-gradient(to bottom right, #dbeafe, #c7d2fe);
-      min-height: 100vh;
+      background: #f9fafb;
     }
 
     nav {
       background: #4f46e5;
-      padding: 12px 16px;
+      color: white;
+      padding: 14px 20px;
     }
 
-    .nav-container {
+    nav .container {
+      max-width: 1100px;
+      margin: auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      max-width: 1000px;
-      margin: auto;
       flex-wrap: wrap;
     }
 
-    .nav-logo {
-      color: white;
-      font-size: 18px;
+    .logo {
       font-weight: bold;
+      font-size: 1.2rem;
     }
 
-    .nav-links {
+    .menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      background: none;
+      border: none;
+      color: white;
+    }
+
+    .links {
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
+      gap: 16px;
     }
 
-    .nav-links a {
+    .links a {
       color: white;
       text-decoration: none;
-      margin: 10px 14px;
       font-weight: 600;
-      font-size: 16px;
-      cursor: pointer;
-      transition: color 0.3s ease;
     }
 
-    .nav-links a:hover {
-      color: #e0e7ff;
-    }
-
-    .nav-toggle {
-      display: none;
-      font-size: 26px;
+    .hero {
+      background: linear-gradient(to right, #4f46e5, #6366f1);
       color: white;
-      cursor: pointer;
-      user-select: none;
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+    }
+
+    .cta-button {
+      background: white;
+      color: #4f46e5;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .cta-button:hover {
+      background: #e0e7ff;
     }
 
     .section {
-      display: none;
-      padding: 30px 20px;
-      max-width: 700px;
-      margin: auto;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
     }
 
-    .section.active {
-      display: block;
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .card {
-      background: white;
-      padding: 25px 20px;
-      border-radius: 20px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    }
-
-    h2 {
+    .section h2 {
       text-align: center;
-      color: #1f2937;
-      margin-bottom: 25px;
-      font-size: 1.6rem;
+      margin-bottom: 20px;
+      font-size: 1.8rem;
     }
 
-    label {
-      display: block;
-      margin-top: 18px;
-      font-weight: 600;
-      color: #374151;
-      font-size: 15px;
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
     }
 
-    select, input, button {
-      width: 100%;
-      padding: 12px 14px;
-      margin-top: 8px;
+    .feature-card {
+      background: white;
       border-radius: 12px;
-      border: 1px solid #cbd5e1;
-      font-size: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
     }
 
-    select:focus, input:focus {
-      outline: none;
-      border-color: #6366f1;
-      box-shadow: 0 0 8px #a5b4fc;
+    .exam-form,
+    .testimonials,
+    .about,
+    .categories {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 30px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
     }
 
-    button {
-      background: linear-gradient(to right, #6366f1, #8b5cf6);
+    footer {
+      background: #1f2937;
       color: white;
-      font-weight: bold;
-      border: none;
-      cursor: pointer;
-      margin-top: 25px;
+      padding: 20px;
+      text-align: center;
     }
 
-    .flash {
-      background: #fee2e2;
-      color: #b91c1c;
-      padding: 12px;
-      border-radius: 10px;
-      margin-top: 15px;
-      font-weight: 500;
+    .ads {
+      margin: 40px auto;
+      text-align: center;
     }
 
-    @media (max-width: 600px) {
-      .nav-toggle { display: block; }
-      .nav-links { display: none; flex-direction: column; width: 100%; }
-      .nav-links.show { display: flex; }
-      .nav-links a { margin: 8px 0; text-align: center; }
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      nav .container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .menu-toggle {
+        display: block;
+        margin-left: auto;
+      }
+
+      .links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      .links.show {
+        display: flex;
+      }
+
+      .cta-button {
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+      }
+
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .section h2 {
+        font-size: 1.5rem;
+      }
+
+      .testimonials blockquote {
+        font-size: 0.95rem;
+        margin: 10px 0;
+      }
     }
   </style>
 </head>
 <body>
 
   <nav>
-    <div class="nav-container">
-      <div class="nav-logo">AI Exam</div>
-      <div class="nav-toggle" onclick="toggleMenu()">☰</div>
-      <div class="nav-links" id="navLinks">
+    <div class="container">
+      <div class="logo">Testifyy - AI Exam</div>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+      <div class="links" id="navLinks">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
         <a href="/privacy">Privacy</a>
-<a href="/terms">Terms</a>
-<a href="/contact">Contact</a>
-<a href="/about">About</a>
-<a href="/formula">Formula</a>
-<a href="/trick">Tricks</a>
-<a href="/syllabus">📚 Syllabus</a>
-
-
-
-        <a href="/doubt">AI Assist</a>
+        <a href="/terms">Terms</a>
+        <a href="/syllabus">Syllabus</a>
+        <a href="/trick">Tricks</a>
+        <a href="/contact">Contact</a>
+        <a href="/doubt">AI BUDDY</a>
+         <a href="/cutoff">CUTOFF</a>
       </div>
     </div>
   </nav>
 
-  <!-- Home Section -->
-  <div class="section active" id="home">
-    <div class="card">
-      <h2>Start Your Exam</h2>
+  <section class="hero">
+    <h1>Master Government Exams with AI</h1>
+    <p>Practice TNPSC, UPSC, SSC & Railway exams with real-time AI assistance and mock tests.</p>
+    <a href="/start-exam" class="cta-button">Start Exam</a>
+  </section>
 
-      <p style="text-align:center; font-size: 14px;">
-        Practice for TNPSC, SSC, UPSC, and Railway exams. Let AI guide your preparation!
-      </p>
-
-      <form method="POST" action="{{ url_for('generate_questions') }}" id="examForm">
-        <label for="mode">Mode</label>
-        <select name="mode" id="mode" required onchange="updateTopicVisibility()">
-          <option value="practice">Practice Mode</option>
-          <option value="mock">Mock Exam Mode</option>
-        </select>
-
-        <label for="exam">Exam</label>
-        <select name="exam" id="exam" required onchange="updateSections()">
-          {% for ex in exams %}
-            <option value="{{ ex }}">{{ ex }}</option>
-          {% endfor %}
-        </select>
-
-        <label for="section">Section</label>
-        <select name="section" id="section" required onchange="updateTopics()"></select>
-
-        <div id="topicDiv" style="display:none;">
-          <label for="topic">Topic</label>
-          <select name="topic" id="topic"></select>
-        </div>
-
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-          <div class="flash" role="alert">
-            {% for message in messages %}
-              <p>{{ message }}</p>
-            {% endfor %}
-          </div>
-        {% endif %}
-        {% endwith %}
-
-        <button type="submit" id="startExamBtn">Start Exam</button>
-      </form>
-
-      <!-- ✅ Ad block after form -->
-      <div style="margin-top: 20px; text-align: center;">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-4605579560460422"
-             data-ad-slot="1234567890"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  <section class="section features">
+    <h2>Why Choose Testifyy?</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <h3>AI Assistant</h3>
+        <p>Ask doubts and get instant answers while studying.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Mock Exams</h3>
+        <p>Timed full-length exams that simulate real experience.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Topic Practice</h3>
+        <p>Practice specific topics and track your progress.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Performance Insights</h3>
+        <p>Smart analytics and improvement suggestions.</p>
       </div>
     </div>
+  </section>
+
+  <section class="section categories">
+    <h2>Exams We Cover</h2>
+    <ul>
+      <li>🟢 TNPSC Group I, II, IV</li>
+      <li>🔵 SSC CGL, CHSL, MTS</li>
+      <li>🟡 UPSC Prelims</li>
+      <li>🟠 RRB NTPC, Group D</li>
+    </ul>
+  </section>
+
+  <section class="section about">
+    <h2>About Us</h2>
+    <p>
+      Testifyy is your smart study partner, helping aspirants succeed in competitive government exams. Our mission is to make learning effective, personalized, and accessible through the power of artificial intelligence.
+    </p>
+  </section>
+
+  <section class="section testimonials">
+    <h2>What Students Say</h2>
+    <blockquote>
+      "I cleared my TNPSC Group II with Testifyy. The AI assistant helped me understand doubts instantly!" – Ramya, Tamil Nadu
+    </blockquote>
+    <blockquote>
+      "Mock tests were very similar to real exams. Highly recommended." – Arvind, Chennai
+    </blockquote>
+  </section>
+
+  <section class="section exam-form" id="exam">
+    <h2>Ready to Practice?</h2>
+    <p>Start your AI-powered mock exam experience now.</p>
+    <a href="/start-exam" class="cta-button">Go to Start Exam Page</a>
+  </section>
+
+  <div class="ads">
+    <!-- Responsive Ad Unit -->
+    <ins class="adsbygoogle"
+      style="display:block"
+      data-ad-client="ca-pub-4605579560460422"
+      data-ad-slot="1234567890"
+      data-ad-format="auto"
+      data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
 
-  
+  <footer>
+    <p>&copy; 2025 Testifyy. All rights reserved.</p>
+  </footer>
+
   <script>
     function toggleMenu() {
-      const links = document.getElementById('navLinks');
-      links.classList.toggle('show');
+      document.getElementById("navLinks").classList.toggle("show");
     }
-
-    const sections = {{ sections | tojson }};
-    const subTopics = {{ sub_topics | safe }};
-
-    function showSection(id) {
-      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-      document.getElementById('navLinks').classList.remove('show');
-    }
-
-    function updateSections() {
-      const exam = document.getElementById('exam').value;
-      const sectionSelect = document.getElementById('section');
-      sectionSelect.innerHTML = '';
-      if (sections[exam]) {
-        sections[exam].forEach(sec => {
-          const option = document.createElement('option');
-          option.value = sec;
-          option.textContent = sec;
-          sectionSelect.appendChild(option);
-        });
-      }
-      updateTopics();
-    }
-
-    function updateTopics() {
-      const exam = document.getElementById('exam').value;
-      const section = document.getElementById('section').value;
-      const topicSelect = document.getElementById('topic');
-      topicSelect.innerHTML = '';
-      if (subTopics[exam] && subTopics[exam][section]) {
-        subTopics[exam][section].forEach(topic => {
-          const option = document.createElement('option');
-          option.value = topic;
-          option.textContent = topic;
-          topicSelect.appendChild(option);
-        });
-        topicSelect.required = true;
-      } else {
-        topicSelect.required = false;
-      }
-    }
-
-    function updateTopicVisibility() {
-      const mode = document.getElementById('mode').value;
-      const topicDiv = document.getElementById('topicDiv');
-      topicDiv.style.display = mode === 'practice' ? 'block' : 'none';
-    }
-
-    document.getElementById('examForm').addEventListener('submit', function() {
-      const btn = document.getElementById('startExamBtn');
-      btn.disabled = true;
-      btn.textContent = 'Generating...';
-    });
-
-    window.onload = () => {
-      updateSections();
-      updateTopicVisibility();
-    };
   </script>
 
 </body>
