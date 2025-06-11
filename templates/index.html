@@ -18,8 +18,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
 
   <!-- AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4605579560460422"
-    crossorigin="anonymous"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4605579560460422" crossorigin="anonymous"></script>
 
   <style>
     * {
@@ -116,6 +115,11 @@
       font-size: 1.8rem;
     }
 
+    .section p, .section ul, .section li {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
     .features-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -129,10 +133,7 @@
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
     }
 
-    .exam-form,
-    .testimonials,
-    .about,
-    .categories {
+    .exam-form, .testimonials, .about, .categories, .intro {
       background: white;
       border-radius: 12px;
       padding: 20px;
@@ -152,7 +153,6 @@
       text-align: center;
     }
 
-    /* Mobile Responsive */
     @media (max-width: 768px) {
       nav .container {
         flex-direction: column;
@@ -215,7 +215,7 @@
         <a href="/trick">Tricks</a>
         <a href="/contact">Contact</a>
         <a href="/doubt">AI BUDDY</a>
-         <a href="/cutoff">CUTOFF</a>
+        <a href="/cutoff">CUTOFF</a>
       </div>
     </div>
   </nav>
@@ -224,6 +224,16 @@
     <h1>Master Government Exams with AI</h1>
     <p>Practice TNPSC, UPSC, SSC & Railway exams with real-time AI assistance and mock tests.</p>
     <a href="/start-exam" class="cta-button">Start Exam</a>
+  </section>
+
+  <section class="section intro">
+    <h2>Welcome to Testifyy – Your AI-Powered Exam Coach</h2>
+    <p>
+      Testifyy is built for serious aspirants preparing for government exams like TNPSC, SSC, UPSC, and Railway recruitment. Our goal is simple — to empower you with personalized, AI-backed study tools so you can learn smarter and perform better.
+    </p>
+    <p>
+      Whether you're tackling General Studies, Aptitude, or Current Affairs, Testifyy provides full-length mock exams, targeted topic practice, and instant AI doubt solving. You can track your progress, get real-time feedback, and improve with every test.
+    </p>
   </section>
 
   <section class="section features">
@@ -301,6 +311,5 @@
       document.getElementById("navLinks").classList.toggle("show");
     }
   </script>
-
 </body>
 </html>
