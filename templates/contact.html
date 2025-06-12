@@ -4,29 +4,39 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact Us | SmartExam</title>
-   <!-- ✅ Google AdSense Auto Ads -->
+  <meta name="description" content="Contact SmartExam for support, feedback, exam guidance, or partnership inquiries. We typically respond within 24-48 hours.">
+  
+  <!-- ✅ Google AdSense Auto Ads -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4605579560460422"
     crossorigin="anonymous"></script>
 
   <style>
     body {
       font-family: 'Poppins', sans-serif;
-      max-width: 600px;
+      max-width: 700px;
       margin: 40px auto;
       padding: 20px;
       background: #f9fafb;
       color: #1f2937;
     }
-    h1 {
+    h1, h2 {
       color: #4f46e5;
       font-weight: 600;
-      margin-bottom: 20px;
+    }
+    p, li {
+      font-size: 15px;
+      color: #374151;
+    }
+    ul {
+      padding-left: 20px;
+      line-height: 1.6;
     }
     form {
       background: white;
       padding: 20px;
       border-radius: 12px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      margin-bottom: 40px;
     }
     label {
       display: block;
@@ -56,10 +66,25 @@
     button:hover {
       background-color: #4f46e5;
     }
+    a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      text-align: center;
+      font-size: 14px;
+      color: #9ca3af;
+      margin-top: 40px;
+    }
   </style>
 </head>
 <body>
+
   <h1>Contact Us</h1>
+
   <form method="POST" action="/contact_submit">
     <label for="name">Name</label>
     <input type="text" id="name" name="name" required />
@@ -72,5 +97,37 @@
 
     <button type="submit">Send Message</button>
   </form>
+
+  <section>
+    <h2>📌 Why Contact Us?</h2>
+    <p>We’re here to help you with:</p>
+    <ul>
+      <li>Exam preparation guidance for TNPSC, SSC, UPSC, RRB & more</li>
+      <li>Feedback about mock tests, AI assistant, or result accuracy</li>
+      <li>Reporting bugs, glitches or wrong answers</li>
+      <li>Partnership, sponsorship or advertising discussions</li>
+      <li>Improvement suggestions or new feature requests</li>
+    </ul>
+  </section>
+
+  <section style="margin-top: 30px;">
+    <h2>💬 Response Time</h2>
+    <p>We usually respond within <strong>24–48 hours</strong>. Please check your spam folder if you don’t hear from us.</p>
+  </section>
+
+  <section style="margin-top: 30px;">
+    <h2>📮 Alternate Contact</h2>
+    <p>You can also reach us directly at: <strong><a href="mailto:edupulse6@gmail.com">edupulse6@gmail.com</a></strong></p>
+  </section>
+
+  <section style="margin-top: 30px;">
+    <h2>🔒 Privacy Notice</h2>
+    <p>Your privacy matters to us. We never sell or misuse your contact details. Read our <a href="/privacy-policy">Privacy Policy</a>.</p>
+  </section>
+
+  <footer>
+    SmartExam by Testifyy © 2025 — Practice Smarter.
+  </footer>
+
 </body>
 </html>

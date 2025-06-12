@@ -57,6 +57,10 @@ class Question(db.Model):
 def about():
     return render_template("about.html")
 
+@app.route("/dates")
+def dates():
+    return render_template("dates.html")
+
 @app.route("/cutoff")
 def cutoff():
     return render_template("cutoff.html")

@@ -6,134 +6,124 @@
   <meta name="description" content="Practice {{ exam }} - {{ section }} questions with AI-powered simulator. Prepare smarter for TNPSC, SSC, UPSC, RRB, and more.">
   <title>{{ exam }} - {{ section }} | SmartExam</title>
 
-  <!-- ✅ Google AdSense Script -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4605579560460422"
-    crossorigin="anonymous"></script>
-
-  <!-- Fonts + Styles -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 20px;
-      background: linear-gradient(to bottom right, #e0f2fe, #f3e8ff);
-    }
-
-    .container {
-      max-width: 750px;
-      margin: auto;
-      background: #fff;
-      padding: 30px 20px;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    }
-
-    h2, h3 {
+      background: linear-gradient(to top right, #dbeafe, #ede9fe);
       color: #1f2937;
-      margin-bottom: 20px;
+    }
+    .container {
+      max-width: 760px;
+      margin: auto;
+      background: #ffffff;
+      padding: 30px 25px;
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+      animation: fadeIn 0.6s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    h2, h3 {
+      color: #4338ca;
       font-weight: 600;
     }
-
     .question-block {
-      background: #f9fafb;
       border: 1px solid #e5e7eb;
+      background: #f8fafc;
       padding: 20px;
-      border-radius: 12px;
+      border-radius: 14px;
       margin-bottom: 25px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+      transition: box-shadow 0.2s ease;
     }
-
+    .question-block:hover {
+      box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+    }
     .question-text {
+      font-size: 16px;
       font-weight: 600;
       margin-bottom: 15px;
       color: #111827;
-      font-size: 16px;
     }
-
     label {
-      display: flex;
-      align-items: center;
+      display: block;
       background: #fff;
-      border: 1px solid #e5e7eb;
+      border: 1px solid #d1d5db;
       border-radius: 10px;
-      padding: 10px 12px;
+      padding: 10px 14px;
       margin-bottom: 10px;
       cursor: pointer;
-      transition: background 0.2s;
+      transition: background 0.2s ease, border-color 0.2s;
     }
-
     label:hover {
       background: #f3f4f6;
+      border-color: #a5b4fc;
     }
-
     input[type="radio"] {
-      margin-right: 12px;
-      accent-color: #4f46e5;
+      margin-right: 10px;
+      accent-color: #6366f1;
     }
-
     button {
       width: 100%;
-      background: linear-gradient(to right, #6366f1, #8b5cf6);
-      color: #fff;
-      border: none;
       padding: 14px;
+      background: linear-gradient(to right, #6366f1, #8b5cf6);
+      color: white;
+      border: none;
+      border-radius: 14px;
       font-size: 16px;
       font-weight: 600;
-      border-radius: 12px;
       cursor: pointer;
-      transition: background 0.3s;
+      margin-top: 10px;
+      transition: background 0.3s ease;
     }
-
     button:hover {
       background: linear-gradient(to right, #4f46e5, #7c3aed);
     }
-
-    .ads-box {
-      text-align: center;
-      margin: 30px 0;
+    ul {
+      padding-left: 20px;
     }
-
+    ul li {
+      margin-bottom: 10px;
+    }
+    details {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-bottom: 12px;
+    }
     footer {
       text-align: center;
       font-size: 14px;
       margin-top: 40px;
       padding-top: 20px;
-      border-top: 1px solid #ddd;
+      border-top: 1px solid #e5e7eb;
       color: #6b7280;
     }
-
     footer a {
-      color: #6b7280;
-      text-decoration: underline;
+      color: #6366f1;
       margin: 0 5px;
+      text-decoration: none;
     }
-
-    details {
-      margin-bottom: 12px;
-      background: #f9fafb;
-      border-radius: 8px;
-      padding: 10px 15px;
-      border: 1px solid #e5e7eb;
+    footer a:hover {
+      text-decoration: underline;
     }
-
-    @media (max-width: 600px) {
+    @media (max-width: 640px) {
       .container {
         padding: 20px 15px;
       }
       h2 {
         font-size: 1.25rem;
       }
-      .question-text {
+      .question-text, label, button {
         font-size: 15px;
-      }
-      label {
-        font-size: 14px;
-        padding: 10px;
-      }
-      button {
-        font-size: 15px;
-        padding: 12px;
       }
     }
   </style>
@@ -142,45 +132,34 @@
   <div class="container">
     <h2>{{ exam }} - {{ section }}{% if topic %} - {{ topic }}{% endif %}</h2>
 
-    <!-- ✅ Top AdSense Unit -->
-    <div class="ads-box">
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-4605579560460422"
-           data-ad-slot="YOUR_SLOT_ID"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
-
     <!-- ✅ Introductory Section -->
     <section>
-      <h3 style="color:#4f46e5;">About This Section</h3>
-      <p style="color:#374151;">
+      <h3>About This Section</h3>
+      <p>
         You're currently practicing questions for <strong>{{ exam }}</strong> - <strong>{{ section }}</strong>
-        {% if topic %} on the topic <strong>{{ topic }}</strong>{% endif %}. These questions are designed to mirror the actual exam pattern and difficulty level. Practicing regularly helps improve time management and accuracy.
+        {% if topic %} on the topic <strong>{{ topic }}</strong>{% endif %}. These questions are designed to mirror the actual exam pattern and difficulty level.
       </p>
     </section>
 
-    <!-- ✅ How to Use Guide -->
+    <!-- ✅ How to Use -->
     <section>
-      <h3 style="color:#4f46e5;">How to Use</h3>
-      <ul style="color:#374151; padding-left: 20px;">
-        <li>Read each question carefully and choose the most appropriate answer.</li>
-        <li>Click "Finish & Submit" once all answers are selected.</li>
-        <li>You’ll receive instant scoring and explanations for each answer.</li>
-        <li>Use the “AI Buddy” on the homepage if you have any doubts.</li>
+      <h3>How to Use</h3>
+      <ul>
+        <li>Read each question and pick the correct answer.</li>
+        <li>Click "Finish & Submit" when you're done.</li>
+        <li>Instant feedback with scoring and explanations.</li>
+        <li>Ask doubts using <a href="/doubt" style="color:#6366f1;">AI Buddy</a>.</li>
       </ul>
     </section>
 
-    <!-- ✅ Pro Tips Section -->
+    <!-- ✅ Pro Tips -->
     <section>
-      <h3 style="color:#4f46e5;">Smart Preparation Tips</h3>
-      <ul style="color:#374151; padding-left: 20px;">
-        <li>Focus on weak topics by filtering subtopics in the main menu.</li>
-        <li>Use a timer while practicing to simulate real exam pressure.</li>
-        <li>Review your wrong answers after every test to improve retention.</li>
-        <li>Practice daily — even 15 questions per day builds strong momentum.</li>
+      <h3>Smart Preparation Tips</h3>
+      <ul>
+        <li>Target weak areas using the subtopic filter.</li>
+        <li>Use a timer to simulate exam conditions.</li>
+        <li>Analyze mistakes right after every test.</li>
+        <li>Be consistent — daily practice builds confidence.</li>
       </ul>
     </section>
 
@@ -189,7 +168,6 @@
       {% for q in questions %}
         <div class="question-block">
           <div class="question-text">Q{{ loop.index }}: {{ q.question }}</div>
-
           <input type="hidden" name="question_id" value="{{ q.id }}">
           <input type="hidden" name="correct_answer" value="{{ q.answer }}">
           <input type="hidden" name="section" value="{{ q.section }}">
@@ -200,44 +178,32 @@
           <label><input type="radio" name="user_answer_{{ q.id }}" value="D"> D. {{ q.options.D }}</label>
         </div>
       {% endfor %}
-
       <button type="submit">Finish & Submit</button>
     </form>
 
-    <!-- ✅ FAQ Section -->
+    <!-- ✅ FAQs -->
     <section style="margin-top: 40px;">
-      <h3 style="color:#4f46e5;">Frequently Asked Questions</h3>
+      <h3>Frequently Asked Questions</h3>
       <details>
         <summary><strong>Is this free to use?</strong></summary>
-        <p>Yes! All practice sets and explanations are 100% free for students.</p>
+        <p>Yes! All mock tests and feedback are free.</p>
       </details>
       <details>
         <summary><strong>Can I use this on mobile?</strong></summary>
-        <p>Absolutely. Our site is fully mobile-optimized for all devices.</p>
+        <p>Yes — the website is fully responsive for mobile devices.</p>
       </details>
       <details>
         <summary><strong>How is my score calculated?</strong></summary>
-        <p>Your score is based on correct answers and includes negative marking where applicable.</p>
+        <p>Scores include correct answers and negative marking (if applicable).</p>
       </details>
       <details>
-        <summary><strong>How do I ask a doubt?</strong></summary>
-        <p>Go to the <a href="/doubt" style="color:#6366f1;">AI Buddy</a> page to ask your questions and get instant help.</p>
+        <summary><strong>How to ask a doubt?</strong></summary>
+        <p>Use the <a href="/doubt" style="color:#6366f1;">AI Buddy</a> to clarify any confusion instantly.</p>
       </details>
     </section>
 
-    <!-- ✅ Bottom AdSense Unit -->
-    <div class="ads-box">
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-4605579560460422"
-           data-ad-slot="YOUR_SLOT_ID"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
-
     <footer>
-      Testifyy © 2025 | Practice makes perfect.<br>
+      Testifyy © 2025 | Learn smart. Practice hard.<br>
       <a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a>
     </footer>
   </div>
