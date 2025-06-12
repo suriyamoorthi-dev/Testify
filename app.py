@@ -701,6 +701,19 @@ def review_answers():
 
 
 
+@app.route('/sample-result')
+def sample_result():
+    score = 18
+    total = 25
+    weak_areas = ["History - Modern India", "Aptitude - Number Series", "Geography - Indian Rivers"]
+    return render_template("submit_exam.html", score=score, total=total, weak_areas=weak_areas)
+
+@app.route('/sample-review')
+def sample_review():
+    return render_template("sample-review.html")
+
+
+
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()

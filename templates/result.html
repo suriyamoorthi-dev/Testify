@@ -150,6 +150,11 @@
       <p class="mt-3">
         Below is a detailed breakdown of your performance. Review it carefully to spot topics that need extra attention. Our platform uses smart logic to keep your preparation focused and effective.
       </p>
+      {% if request.path == '/sample-result' %}
+  <div class="alert alert-info text-start mt-3">
+    🔍 <strong>This is a preview of the result page.</strong> Take a real test to see your personal performance summary.
+  </div>
+{% endif %}
 
       {% if weak_areas %}
         <div class="alert alert-warning mt-4 text-start">
