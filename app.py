@@ -57,6 +57,11 @@ class Question(db.Model):
 def about():
     return render_template("about.html")
 
+@app.route('/robots.txt')
+def robots():
+    return app.send_static_file('robots.txt')
+
+
 @app.route("/dates")
 def dates():
     return render_template("dates.html")
