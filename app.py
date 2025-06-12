@@ -53,13 +53,57 @@ class Question(db.Model):
             "answer": self.answer
         }
 
+from flask import Response
+from datetime import datetime
+
+@app.route('/sitemap.xml', methods=['GET'])
+def sitemap():
+    pages = []
+    base_url = "https://www.testifyy.online"
+
+    # Add your static pages here
+    static_pages = [
+        '',
+        '/about',
+        '/terms',
+        '/privacy',
+        '/trick',
+        '/doubtsolver',
+        '/start-exam',
+        '/result',
+        '/review'
+        
+        
+        
+        # this should be a GET-rendered result page
+    ]
+
+    for page in static_pages:
+        pages.append(f"""
+        <url>
+            <loc>{base_url}{page}</loc>
+            <lastmod>{datetime.now().date()}</lastmod>
+            <changefreq>weekly</changefreq>
+            <priority>0.8</priority>
+        </url>""")
+
+    xml = f"""<?xml version="1.0" encoding="UTF-8"?>
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+        {''.join(pages)}
+    </urlset>"""
+
+    return Response(xml, mimetype='application/xml')
+
+
 @app.route("/about")
 def about():
     return render_template("about.html")
 
-@app.route('/robots.txt')
-def robots():
-    return app.send_static_file('robots.txt')
+from flask import send_from_directory
+
+@app.route('/robot.txt')
+def robot():
+    return send_from_directory(app.static_folder, 'robot.txt')
 
 
 @app.route("/dates")
