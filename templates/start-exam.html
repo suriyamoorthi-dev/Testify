@@ -5,10 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Start Exam - Testifyy</title>
 
-  <!-- ✅ Google AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4605579560460422" crossorigin="anonymous"></script>
-
-  <!-- Fonts + Icons -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4605579560460422"
+       crossorigin="anonymous"></script>
+  <script>
+       (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-4605579560460422",
+            enable_page_level_ads: true
+       });
+  </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
 
@@ -72,10 +76,8 @@
     button:hover {
       background: #3730a3;
     }
-    .ads-box {
-      text-align: center;
-      margin: 30px 0;
-    }
+    /* Removed .ads-box since manual ad units are being removed. 
+       If you want to keep similar spacing for content, you might adjust other elements. */
     .extra-info {
       background: #f9fafb;
       border: 1px solid #e5e7eb;
@@ -144,17 +146,6 @@
 
   <div class="container">
 
-    <!-- ✅ Top Ad -->
-    <div class="ads-box">
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-4605579560460422"
-           data-ad-slot="YOUR_SLOT_ID"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
-
     <h2>Start Your Custom Practice Test</h2>
 
     <div class="summary-box">
@@ -190,18 +181,6 @@
       <button type="submit" id="startBtn"><i class="fas fa-play"></i> Start Exam</button>
     </form>
 
-    <!-- ✅ AdSense Between Form and Tips -->
-    <div class="ads-box">
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-4605579560460422"
-           data-ad-slot="YOUR_SLOT_ID"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
-
-    <!-- ✅ Tips Section -->
     <div class="extra-info">
       <h3>Exam Preparation Tips</h3>
       <ul>
@@ -212,7 +191,6 @@
       </ul>
     </div>
 
-    <!-- ✅ FAQ Section -->
     <div class="extra-info">
       <h3>Frequently Asked Questions</h3>
       <ul>
@@ -223,24 +201,12 @@
       </ul>
     </div>
 
-    <!-- ✅ Bottom Ad -->
-    <div class="ads-box">
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-4605579560460422"
-           data-ad-slot="YOUR_SLOT_ID"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
-
-  </div>
 
   <footer>
     © 2025 Testifyy • Powered by AI • <a href="/privacy">Privacy Policy</a>
   </footer>
 
-  <!-- ✅ JS to Load Sections/Topics + Spinner -->
   <script>
     const sections = {{ sections | tojson }};
     const subTopics = {{ sub_topics | safe }};

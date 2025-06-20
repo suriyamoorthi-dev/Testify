@@ -7,7 +7,12 @@
   <meta name="description" content="Get detailed AI-based analysis of your exam performance including weak areas and personalized tips. Free online test result page for TNPSC, SSC, RRB, UPSC and more.">
 
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4605579560460422" crossorigin="anonymous"></script>
-
+  <script>
+       (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-4605579560460422",
+            enable_page_level_ads: true
+       });
+  </script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
@@ -24,7 +29,7 @@
     .list-group-item { border: none; padding-left: 1.2rem; background-color: #f9fafb; font-size: 15px; }
     .btn { border-radius: 12px; padding: 12px 20px; font-weight: 600; font-size: 15px; }
     .summary-box { background-color: #eef2ff; border-left: 5px solid #4f46e5; padding: 15px 20px; border-radius: 8px; font-size: 14.5px; line-height: 1.6; margin-bottom: 20px; }
-    .ad-container { margin-top: 40px; text-align: center; }
+    /* Removed .ad-container style as it's no longer needed for manual ad units */
     footer { text-align: center; margin-top: 60px; font-size: 14px; color: #6b7280; padding: 20px; }
     footer a { color: #6b7280; text-decoration: underline; }
     @media (max-width: 480px) {
@@ -45,7 +50,6 @@
     <div class="card">
       <h2>🎯 Test Completed</h2>
 
-      <!-- Preview Banner -->
       {% if request.path == '/sample-result' %}
         <div class="alert alert-info text-start mt-3">
           🔍 <strong>This is a preview of the result page.</strong> Take a real test to see your personal performance summary.
@@ -87,16 +91,7 @@
       <a href="/" class="btn btn-outline-primary mt-4">Take Another Test</a>
       <a href="{{ url_for('review_answers') }}" class="btn btn-primary mt-3">Show Answers</a>
 
-      <div class="ad-container mt-4">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-4605579560460422"
-             data-ad-slot="1234567890"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
       </div>
-    </div>
   </div>
 
   <footer>

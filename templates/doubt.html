@@ -6,12 +6,15 @@
   <title>AI Doubt Solver | Practice Tricks & Doubts</title>
   <meta name="description" content="Ask your exam doubts and tricks to our smart AI assistant. Perfect for TNPSC, SSC, Railway, and other competitive exams.">
 
-  <!-- ✅ Google AdSense Auto Ads -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4605579560460422"
     crossorigin="anonymous"></script>
-
-  <!-- Fonts + Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-4605579560460422",
+      enable_page_level_ads: true
+    });
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
   <style>
@@ -25,14 +28,15 @@
       flex-direction: column;
       align-items: center;
       min-height: 100vh;
+      color: #1f2937; /* Default text color */
     }
 
     .container {
       background: white;
-      padding: 40px 30px;
+      padding: 45px 35px; /* Increased padding */
       border-radius: 20px;
       box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
-      max-width: 600px;
+      max-width: 650px; /* Slightly wider container */
       width: 100%;
       animation: fadeIn 0.5s ease-in-out;
     }
@@ -40,19 +44,23 @@
     h2 {
       text-align: center;
       color: #4f46e5;
-      margin-bottom: 25px;
-      font-size: 32px;
+      margin-bottom: 30px; /* Increased margin */
+      font-size: 36px; /* Slightly larger font */
+      font-weight: 700; /* Bolder */
+      text-shadow: 1px 1px 3px rgba(79, 70, 229, 0.2); /* Subtle text shadow */
     }
 
     label {
       font-weight: 600;
       color: #374151;
-      margin-top: 20px;
+      margin-top: 25px; /* Increased margin */
+      display: block; /* Ensures label takes full width */
+      margin-bottom: 5px; /* Space between label and input */
     }
 
     .input-group {
       position: relative;
-      margin-top: 10px;
+      /* margin-top: 10px; */ /* Removed, handled by label margin */
     }
 
     .input-group i {
@@ -61,6 +69,7 @@
       top: 50%;
       transform: translateY(-50%);
       color: #9ca3af;
+      font-size: 1.1em; /* Slightly larger icon */
     }
 
     input, select {
@@ -70,11 +79,13 @@
       border: 1px solid #d1d5db;
       font-size: 16px;
       background-color: #f9fafb;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease; /* Smooth transition */
     }
 
     input:focus, select:focus {
       border-color: #6366f1;
       outline: none;
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2); /* Soft shadow on focus */
     }
 
     button {
@@ -82,21 +93,23 @@
       color: white;
       border: none;
       border-radius: 12px;
-      padding: 16px;
-      font-size: 18px;
-      font-weight: 600;
-      margin-top: 30px;
+      padding: 18px; /* Slightly larger padding */
+      font-size: 19px; /* Slightly larger font */
+      font-weight: 700; /* Bolder button text */
+      margin-top: 35px; /* Increased margin */
       width: 100%;
       cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease; /* Smooth transitions */
     }
 
     button:hover {
       background: linear-gradient(to right, #4f46e5, #7c3aed);
+      transform: translateY(-2px); /* Slight lift on hover */
     }
 
     .spinner {
       display: none;
-      margin: 25px auto 0;
+      margin: 30px auto 0; /* Adjusted margin */
       border: 6px solid #e5e7eb;
       border-top: 6px solid #6366f1;
       border-radius: 50%;
@@ -106,40 +119,75 @@
     }
 
     .response {
-      margin-top: 25px;
+      margin-top: 30px; /* Adjusted margin */
       background: #f0fdf4;
-      padding: 20px;
-      border-radius: 12px;
+      padding: 25px; /* Increased padding */
+      border-radius: 15px; /* More rounded corners */
       color: #065f46;
-      font-size: 16px;
-      line-height: 1.6;
-      border-left: 5px solid #10b981;
+      font-size: 17px; /* Slightly larger font */
+      line-height: 1.7;
+      border-left: 6px solid #10b981; /* Thicker border */
       white-space: pre-line;
-    }
-
-    .ads-box {
-      margin-top: 40px;
-      text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 128, 0, 0.08); /* Subtle shadow for response */
     }
 
     .how-to-use, .sample-content, .about {
-      margin-top: 40px;
-      max-width: 600px;
+      margin-top: 50px; /* Increased top margin for separation */
+      max-width: 650px;
+      width: 100%;
+      padding: 25px; /* Consistent padding */
+      border-radius: 15px; /* Consistent rounding */
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); /* Soft shadow for all info boxes */
+      margin-bottom: 25px; /* Space between sections */
     }
 
     .how-to-use {
       background: #fefce8;
-      border-left: 5px solid #facc15;
-      padding: 20px;
-      border-radius: 12px;
+      border-left: 6px solid #facc15;
+    }
+    .how-to-use h3 {
+      color: #d97706; /* Darker yellow heading */
+      margin-bottom: 15px;
+      font-size: 1.5rem; /* Larger heading */
+    }
+    .how-to-use ul {
+        list-style: none; /* Remove default list style */
+        padding-left: 0; /* Remove default padding */
+    }
+    .how-to-use li {
+        margin-bottom: 10px;
+        padding-left: 25px; /* Indent content */
+        position: relative;
+        font-size: 1.05rem;
+    }
+    .how-to-use li::before {
+        content: "💡"; /* Custom bullet point */
+        position: absolute;
+        left: 0;
+        top: 0;
     }
 
+
+    .sample-content {
+      background: #eef2ff; /* Lighter blue background */
+      border-left: 6px solid #6366f1; /* Primary blue border */
+    }
+    .sample-content h3 {
+      color: #4f46e5; /* Primary blue heading */
+      margin-bottom: 20px;
+      font-size: 1.5rem; /* Larger heading */
+    }
     .sample-box {
       background: #f1f5f9;
-      padding: 15px;
-      border-left: 5px solid #3b82f6;
+      padding: 18px; /* Adjusted padding */
+      border-left: 4px solid #3b82f6; /* Consistent border */
       border-radius: 10px;
       margin-bottom: 15px;
+      line-height: 1.5;
+      font-size: 1.05rem;
+    }
+    .sample-box strong {
+        color: #1e3a8a; /* Darker blue for Q: */
     }
 
     .sample-box.yellow {
@@ -149,18 +197,23 @@
 
     .about {
       background: #ecfdf5;
-      padding: 20px;
-      border-left: 5px solid #10b981;
-      border-radius: 12px;
+      border-left: 6px solid #10b981;
       color: #334155;
       line-height: 1.7;
+    }
+    .about h3 {
+        color: #059669; /* Green heading */
+        margin-bottom: 15px;
+        font-size: 1.5rem; /* Larger heading */
     }
 
     footer {
       text-align: center;
       font-size: 14px;
       color: #6b7280;
-      margin-top: 40px;
+      margin-top: 50px; /* Increased margin */
+      padding-top: 20px; /* Added padding to separate from content */
+      border-top: 1px solid #e2e8f0; /* Subtle top border */
     }
 
     @keyframes spin { to { transform: rotate(360deg); } }
@@ -168,91 +221,100 @@
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
+    @media (max-width: 768px) {
+      .container { padding: 30px 20px; }
+      h2 { font-size: 28px; }
+      label { font-size: 15px; margin-top: 15px;}
+      input, select { padding: 12px 12px 12px 38px; font-size: 15px; }
+      button { padding: 14px; font-size: 17px; margin-top: 25px; }
+      .response { padding: 20px; font-size: 15px; }
+      .how-to-use, .sample-content, .about { margin-top: 35px; padding: 20px; }
+      .how-to-use h3, .sample-content h3, .about h3 { font-size: 1.3rem; }
+      .how-to-use li, .sample-box, .about p { font-size: 0.95rem; }
+    }
+    @media (max-width: 480px) {
+      body { padding: 15px; }
+      .container { padding: 25px 15px; border-radius: 15px; }
+      h2 { font-size: 24px; margin-bottom: 20px; }
+      label { font-size: 14px; margin-top: 12px;}
+      input, select { padding: 10px 10px 10px 35px; font-size: 14px; border-radius: 8px;}
+      .input-group i { left: 10px; font-size: 1em; }
+      button { padding: 12px; font-size: 16px; margin-top: 20px; border-radius: 10px;}
+      .spinner { width: 30px; height: 30px; border-width: 5px;}
+      .response { padding: 18px; font-size: 14px; border-radius: 10px; border-left-width: 5px;}
+      .how-to-use, .sample-content, .about { margin-top: 30px; padding: 18px; border-radius: 10px; }
+      .how-to-use h3, .sample-content h3, .about h3 { font-size: 1.2rem; }
+      .how-to-use li, .sample-box, .about p { font-size: 0.9rem; }
+      .sample-box { padding: 12px; border-left-width: 3px; }
+      footer { font-size: 12px; margin-top: 30px; padding-top: 15px;}
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h2><i class="bi bi-lightbulb"></i> AI Doubt Solver</h2>
+    <h2><i class="bi bi-robot"></i> Your AI Exam Assistant</h2>
     <form id="askForm">
-      <label for="topic">📚 Topic / Doubt</label>
+      <label for="topic">📚 Ask your Question or Topic:</label>
       <div class="input-group">
         <i class="bi bi-journal-text"></i>
-        <input type="text" id="topic" name="topic" required placeholder="e.g. Percentage shortcut">
+        <input type="text" id="topic" name="topic" required placeholder="e.g., Simplification short tricks" autocomplete="off">
       </div>
 
-      <label for="mode">⚙️ Mode</label>
+      <label for="mode">⚙️ How do you want the answer?</label>
       <div class="input-group">
         <i class="bi bi-lightbulb"></i>
         <select name="mode" id="mode" required>
-          <option value="trick">Trick</option>
-          <option value="doubt">Doubt</option>
+          <option value="trick">Explain a Trick/Shortcut</option>
+          <option value="doubt">Solve a Doubt/Problem</option>
+          <option value="concept">Explain a Concept</option>
+          <option value="example">Provide an Example</option>
         </select>
       </div>
 
-      <button type="submit"><i class="bi bi-send"></i> Ask AI</button>
+      <button type="submit"><i class="bi bi-send"></i> Get AI Answer</button>
     </form>
 
     <div class="spinner" id="spinner"></div>
     <div class="response" id="aiResponse" style="display:none;"></div>
 
-    <!-- Mid-page AdSense Unit -->
-    <div class="ads-box">
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-4605579560460422"
-           data-ad-slot="1234567891"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
-
-    <!-- 📖 How to Use -->
     <div class="how-to-use">
-      <h3>📖 How to Use</h3>
+      <h3>📖 How to Use Our AI Solver</h3>
       <ul>
-        <li><strong>Step 1:</strong> Type a <b>topic or doubt</b> like “LCM shortcut”</li>
-        <li><strong>Step 2:</strong> Choose <b>Trick</b> or <b>Doubt</b></li>
-        <li><strong>Step 3:</strong> Click <b>Ask AI</b> to get answers instantly</li>
-        <li><strong>Use it for:</strong> TNPSC, SSC, RRB, Banking, UPSC, etc.</li>
+        <li><strong>Step 1:</strong> Type your <b>question, topic, or doubt</b> into the text box. Be specific! (e.g., "Time and Work efficiency method", "Solve: 5x + 3 = 18", "What is Article 370?")</li>
+        <li><strong>Step 2:</strong> Choose the <b>mode</b> from the dropdown menu – whether you need a trick, a solution to a problem, a concept explanation, or an example.</li>
+        <li><strong>Step 3:</strong> Click <b>"Get AI Answer"</b>. Our AI will process your request and provide a clear, concise answer.</li>
+        <li><strong>Pro Tip:</strong> Use it for TNPSC, SSC, RRB, Banking, UPSC, and other competitive exams. It's your personal study buddy!</li>
       </ul>
     </div>
 
-    <!-- 🌟 Sample Tricks & Doubts -->
     <div class="sample-content">
-      <h3 style="color: #1e3a8a;">🌟 Sample Tricks & Explanations</h3>
+      <h3>🌟 Sample Questions & Answers</h3>
       <div class="sample-box">
-        <strong>Q:</strong> How to calculate LCM quickly?<br>
-        <strong>A:</strong> Use prime factorization, then take the highest powers of all primes. Shortcut: For 12 & 18 → LCM = 2²×3² = 36.
+        <strong>Q:</strong> Shortcut for finding square root of large numbers?<br>
+        <strong>A:</strong> Look at the last digit. E.g., for 576, ends in 6, so root ends in 4 or 6. Then check the first digit(s). For 576, 20²=400, 30²=900, so it's 20s. 24²=576.
       </div>
       <div class="sample-box yellow">
-        <strong>Q:</strong> Shortcut for Percentage Increase?<br>
-        <strong>A:</strong> % Increase = (Increase ÷ Original) × 100. Shortcut: Round to nearest 10 and adjust mentally.
+        <strong>Q:</strong> Explain BODMAS rule with an example.<br>
+        <strong>A:</strong> BODMAS is the order of operations: Brackets, Orders (powers/roots), Division, Multiplication, Addition, Subtraction. Example: 10 + 2 × 5 - (6 ÷ 3) = 10 + 2 × 5 - 2 = 10 + 10 - 2 = 18.
+      </div>
+      <div class="sample-box">
+        <strong>Q:</strong> What is the difference between GFC and GDP?<br>
+        <strong>A:</strong> GDP (Gross Domestic Product) is the total value of all goods and services produced within a country in a period. GFC (Gross Fixed Capital Formation) is the value of new investments in fixed assets. GFC is a component of GDP.
       </div>
     </div>
 
-    <!-- 📘 About -->
     <div class="about">
-      <h3>📘 About AI Doubt Solver</h3>
+      <h3>📘 About Your AI Exam Assistant</h3>
       <p>
-        AI Doubt Solver is a free tool designed for competitive exam aspirants across India. From math shortcuts to tricky reasoning explanations, this AI assistant helps you master concepts fast. Whether you're preparing for TNPSC, SSC, Railway, or UPSC exams, simply type your question, choose the mode, and get instant, clear answers. Learning smart starts here.
+        Your AI Exam Assistant from Testifyy is a powerful, free tool designed to simplify your preparation for competitive exams across India, including TNPSC, SSC, Railway, UPSC, Banking, and more. Whether you're stuck on a complex math problem, need a quick trick for a reasoning question, or want a clear explanation of a general knowledge concept, our AI is here to help. It's trained on vast amounts of exam-relevant data to provide accurate, instant, and easy-to-understand answers. Say goodbye to endless searching and hello to smarter, faster learning!
       </p>
-    </div>
-
-    <!-- Bottom AdSense -->
-    <div class="ads-box">
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-4605579560460422"
-           data-ad-slot="1234567890"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
   </div>
 
   <footer>
-    Testifyy  © 2025 | AI-Powered Doubt Solver for Government Exam Prep<br>
-    This site displays ads to support free learning.
+    Testifyy © 2025 | AI-Powered Doubt Solver for Government Exam Prep<br>
+    This site displays ads to support free learning. Your continued use helps us improve!
   </footer>
 
   <script>
@@ -270,17 +332,25 @@
       const mode = document.getElementById('mode').value;
 
       try {
+        // You'll need to replace "/ask" with your actual backend API endpoint
+        // that processes the request and interacts with your AI model (e.g., Gemini, OpenAI).
+        // This is a placeholder for your server-side logic.
         const res = await fetch("/ask", {
           method: "POST",
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ topic, mode })
         });
 
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+
         const data = await res.json();
-        responseDiv.innerText = data.answer;
+        responseDiv.innerText = data.answer || "No answer received."; // Handle empty answer
         responseDiv.style.display = 'block';
       } catch (err) {
-        responseDiv.innerText = "⚠️ Something went wrong. Please try again.";
+        console.error("Error fetching AI response:", err);
+        responseDiv.innerText = "⚠️ Oops! The AI is currently unavailable or encountered an error. Please check your internet connection or try again later. If the problem persists, contact support.";
         responseDiv.style.display = 'block';
       } finally {
         spinner.style.display = 'none';
