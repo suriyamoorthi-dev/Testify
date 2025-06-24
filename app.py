@@ -13,10 +13,11 @@ import csv
 app = Flask(__name__)
 app.secret_key = "suriya"  # 🔐 Required for sessions and forms
 
-@app.route('/ads.txt')
-def ads():
-    return app.send_static_file('ads.txt')
 
+@app.route('/ads.txt')
+def ads_txt():
+    with open('static/ads.txt') as f:
+        return Response(f.read(), mimetype='text/plain')
 
 # Database setup
 basedir = os.path.abspath(os.path.dirname(__file__))
