@@ -14,10 +14,7 @@ app = Flask(__name__)
 app.secret_key = "suriya"  # 🔐 Required for sessions and forms
 
 
-@app.route('/ads.txt')
-def ads_txt():
-    with open('static/ads.txt') as f:
-        return Response(f.read(), mimetype='text/plain')
+
 
 # Database setup
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -142,7 +139,10 @@ def trick():
 def syllabus():
     return render_template("syllabus.html")
 
-
+@app.route('/ads.txt')
+def ads_txt():
+    with open('static/ads.txt') as f:
+        return Response(f.read(), mimetype='text/plain')
 
 
 @app.route('/doubt')
