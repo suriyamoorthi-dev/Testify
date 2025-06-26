@@ -143,6 +143,39 @@ def syllabus():
 def ads_txt():
     with open('static/ads.txt') as f:
         return Response(f.read(), mimetype='text/plain')
+    
+# === Flask Routes (app.py) ===
+
+@app.route('/blog')
+def blog():
+    return render_template('blog.html')
+
+@app.route('/blog/tnpsc-tips')
+def tnpsc_tips():
+    return render_template('tnpsc-tips.html')
+
+@app.route('/blog/ai-in-exam-prep')
+def ai_in_exam_prep():
+    return render_template('ai-in-exam-prep.html')
+
+@app.route('/blog/upsc-prelims-books')
+def upsc_prelims_books():
+    return render_template('upsc-prelims-books.html')
+
+@app.route('/blog/ssc-cgl-strategy')
+def ssc_cgl_strategy():
+    return render_template('ssc-cgl-strategy.html')
+
+@app.route('/blog/railway-ntpc-syllabus')
+def railway_ntpc_syllabus():
+    return render_template('railway-ntpc-syllabus.html')
+
+@app.route('/blog/study-motivation')
+def study_motivation():
+    return render_template('study-motivation.html')
+
+
+
 
 
 @app.route('/doubt')

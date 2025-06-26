@@ -3,39 +3,53 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact Us | SmartExam</title>
-  <meta name="description" content="Contact SmartExam for support, feedback, exam guidance, or partnership inquiries. We typically respond within 24-48 hours.">
+  <title>Contact Us | Testifyy</title>
+  <meta name="description" content="Contact Testifyy for support, feedback, exam guidance, or partnership inquiries. We typically respond within 24-48 hours." />
 
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4605579560460422"
     crossorigin="anonymous"></script>
-
+    
   <style>
     body {
       font-family: 'Poppins', sans-serif;
-      max-width: 700px;
-      margin: 40px auto;
-      padding: 20px;
+      margin: 0;
       background: #f9fafb;
       color: #1f2937;
     }
-    h1, h2 {
+    header {
+      background-color: #4f46e5;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    main {
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 30px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+    h2 {
       color: #4f46e5;
-      font-weight: 600;
+      margin-top: 30px;
+      font-size: 1.4rem;
     }
     p, li {
+      line-height: 1.7;
+      margin-bottom: 15px;
       font-size: 15px;
-      color: #374151;
     }
     ul {
       padding-left: 20px;
-      line-height: 1.6;
     }
     form {
-      background: white;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      margin-bottom: 40px;
+      margin-top: 20px;
     }
     label {
       display: block;
@@ -47,20 +61,22 @@
       padding: 10px;
       margin-top: 6px;
       border-radius: 8px;
-      border: 1px solid #ccc;
+      border: 1px solid #d1d5db;
       font-size: 14px;
       font-family: 'Poppins', sans-serif;
+      background: #fff;
     }
     button {
       margin-top: 20px;
       background-color: #6366f1;
       color: white;
-      padding: 12px;
+      padding: 12px 20px;
       border: none;
       border-radius: 12px;
       font-size: 16px;
       cursor: pointer;
       font-weight: 600;
+      transition: background-color 0.3s ease;
     }
     button:hover {
       background-color: #4f46e5;
@@ -73,59 +89,82 @@
       text-decoration: underline;
     }
     footer {
+      background: #1f2937;
+      color: white;
       text-align: center;
+      padding: 20px;
       font-size: 14px;
-      color: #9ca3af;
       margin-top: 40px;
+    }
+    footer a {
+      color: #4f46e5;
+      margin: 0 8px;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 768px) {
+      main {
+        margin: 20px;
+        padding: 20px;
+      }
+      header h1 {
+        font-size: 1.5rem;
+      }
     }
   </style>
 </head>
 <body>
 
-  <h1>Contact Us</h1>
+  <header>
+    <h1>Contact Us</h1>
+    <p>We’re here to support your success</p>
+  </header>
 
-  <form method="POST" action="/contact_submit">
-    <label for="name">Name</label>
-    <input type="text" id="name" name="name" required />
+  <main>
 
-    <label for="email">Email</label>
-    <input type="email" id="email" name="email" required />
+    <form method="POST" action="/contact_submit">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required />
 
-    <label for="message">Message</label>
-    <textarea id="message" name="message" rows="5" required></textarea>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required />
 
-    <button type="submit">Send Message</button>
-  </form>
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
 
-  <section>
+      <button type="submit">Send Message</button>
+    </form>
+
     <h2>📌 Why Contact Us?</h2>
-    <p>We’re here to help you with:</p>
+    <p>We’re happy to assist you with:</p>
     <ul>
       <li>Exam preparation guidance for TNPSC, SSC, UPSC, RRB & more</li>
       <li>Feedback about mock tests, AI assistant, or result accuracy</li>
-      <li>Reporting bugs, glitches or wrong answers</li>
-      <li>Partnership, sponsorship or advertising discussions</li>
-      <li>Improvement suggestions or new feature requests</li>
+      <li>Reporting bugs, glitches or incorrect answers</li>
+      <li>Partnerships, sponsorships or advertising discussions</li>
+      <li>Suggestions for new features or improvements</li>
     </ul>
-  </section>
 
-  <section style="margin-top: 30px;">
     <h2>💬 Response Time</h2>
     <p>We usually respond within <strong>24–48 hours</strong>. Please check your spam folder if you don’t hear from us.</p>
-  </section>
 
-  <section style="margin-top: 30px;">
     <h2>📮 Alternate Contact</h2>
-    <p>You can also reach us directly at: <strong><a href="mailto:edupulse6@gmail.com">edupulse6@gmail.com</a></strong></p>
-  </section>
+    <p>Email us directly at: <strong><a href="mailto:edupulse6@gmail.com">edupulse6@gmail.com</a></strong></p>
 
-  <section style="margin-top: 30px;">
     <h2>🔒 Privacy Notice</h2>
-    <p>Your privacy matters to us. We never sell or misuse your contact details. Read our <a href="/privacy-policy">Privacy Policy</a>.</p>
-  </section>
+    <p>Your privacy matters. We never misuse your contact details. See our <a href="/privacy-policy.html">Privacy Policy</a>.</p>
+
+  </main>
 
   <footer>
-    SmartExam by Testifyy © 2025 — Practice Smarter.
+    &copy; 2025 Testifyy. All rights reserved. | 
+    <a href="/">Home</a> | 
+    <a href="/about.html">About</a> | 
+    <a href="/privacy-policy.html">Privacy Policy</a> | 
+    <a href="/terms.html">Terms</a> | 
+    <a href="mailto:edupulse6@gmail.com">Contact</a>
   </footer>
 
 </body>
