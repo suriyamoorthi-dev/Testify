@@ -745,10 +745,3 @@ def sample_result():
 @app.route('/sample-review')
 def sample_review():
     return render_template("sample-review.html")
-
-
-
-if __name__ == '__main__':
-    with app.app_context():
-        db.create_all()
-    app.run(debug=True)
