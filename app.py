@@ -581,7 +581,7 @@ def submit_exam():
         user_answer = request.form.get(f"user_answer_{qid}")
         correct = correct_answers[i]
         section = sections[i]
-        q_obj = Question.query.get(int(qid))  # Ensure it's int
+        q_obj = Question.query.get(int(qid))
 
         if section not in weak_tracker:
             weak_tracker[section] = {'total': 0, 'correct': 0}
@@ -606,8 +606,8 @@ def submit_exam():
     weak_areas = [sec for sec, data in weak_tracker.items()
                   if data['correct'] / data['total'] < 0.6]
 
-    # ✅ Save to session as JSON string
-    session['results_data'] = json.dumps(results_data)  # 💥 DON'T store directly!
+    # ✅ Save directly into session (Flask will JSON-encode it)
+    session['results_data'] = results_data
     session['score'] = score
     session['total'] = total
     session['weak_areas'] = weak_areas
@@ -713,16 +713,13 @@ def exam():
         return redirect(url_for("review"))
 
     return render_template("exam.html", questions=questions)
+
 @app.route('/review_answers')
 def review_answers():
-    import json
-    results_json = session.get('results_data')
+    results_data = session.get('results_data')
 
-    if not results_json:
+    if not results_data:
         return "No answers found. Please complete the exam first.", 400
-
-    # ✅ Convert string back to list of dicts
-    results_data = json.loads(results_json)
 
     score = session.get('score', 0)
     total = session.get('total', 0)
@@ -733,15 +730,3 @@ def review_answers():
                            score=score, total=total,
                            weak_areas=weak_areas)
 
-
-
-@app.route('/sample-result')
-def sample_result():
-    score = 18
-    total = 25
-    weak_areas = ["History - Modern India", "Aptitude - Number Series", "Geography - Indian Rivers"]
-    return render_template("submit_exam.html", score=score, total=total, weak_areas=weak_areas)
-
-@app.route('/sample-review')
-def sample_review():
-    return render_template("sample-review.html")

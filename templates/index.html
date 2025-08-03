@@ -14,15 +14,6 @@
   <meta property="og:image" content="/static/og-banner.jpg" />
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4605579560460422"
-       crossorigin="anonymous"></script>
-  <script>
-       (adsbygoogle = window.adsbygoogle || []).push({
-            google_ad_client: "ca-pub-4605579560460422",
-            enable_page_level_ads: true
-       });
-  </script>
   <style>
     * {
       box-sizing: border-box;
@@ -73,6 +64,13 @@
       color: white;
       text-decoration: none;
       font-weight: 600;
+      padding: 6px 12px;
+      transition: background 0.3s;
+    }
+
+    .links a:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 6px;
     }
 
     .hero {
@@ -100,6 +98,7 @@
       font-weight: bold;
       text-decoration: none;
       display: inline-block;
+      transition: background 0.3s;
     }
 
     .cta-button:hover {
@@ -118,14 +117,9 @@
       font-size: 1.8rem;
     }
 
-    .section p, .section ul, .section li {
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-
     .features-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 20px;
     }
 
@@ -134,9 +128,19 @@
       border-radius: 12px;
       padding: 20px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      transition: transform 0.2s;
     }
 
-    .exam-form, .testimonials, .about, .categories, .intro {
+    .feature-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .exam-form,
+    .testimonials,
+    .about,
+    .categories,
+    .intro,
+    .stats {
       background: white;
       border-radius: 12px;
       padding: 20px;
@@ -151,7 +155,6 @@
       text-align: center;
     }
 
-    /* .ads class is no longer strictly needed for Auto Ads, but keeping it won't hurt */
     .ads {
       margin: 40px auto;
       text-align: center;
@@ -201,6 +204,15 @@
         font-size: 0.95rem;
         margin: 10px 0;
       }
+
+      .stats ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .links a {
+        padding: 10px 0;
+      }
     }
   </style>
 </head>
@@ -235,10 +247,10 @@
   <section class="section intro">
     <h2>Welcome to Testifyy – Your AI-Powered Exam Coach</h2>
     <p>
-      Testifyy is built for serious aspirants preparing for government exams like TNPSC, SSC, UPSC, and Railway recruitment. Our goal is simple — to empower you with personalized, AI-backed study tools so you can learn smarter and perform better.
+      Testifyy is built for serious aspirants preparing for government exams like TNPSC, SSC, UPSC, and Railway recruitment.
     </p>
     <p>
-      Whether you're tackling General Studies, Aptitude, or Current Affairs, Testifyy provides full-length mock exams, targeted topic practice, and instant AI doubt solving. You can track your progress, get real-time feedback, and improve with every test.
+      Get full-length mock exams, topic practice, and instant AI doubt solving. Track progress, get feedback, and improve every test.
     </p>
   </section>
 
@@ -273,34 +285,34 @@
       <li>🟠 RRB NTPC, Group D</li>
     </ul>
   </section>
-  <section class="section stats">
-  <h2>Our Impact So Far</h2>
-  <ul style="display:flex; flex-wrap:wrap; justify-content:space-around; list-style:none; padding:0;">
-    <li><strong>5,000+</strong> Registered Students</li>
-    <li><strong>40,000+</strong> Questions Practiced</li>
-    <li><strong>92%</strong> Reported Score Improvement</li>
-  </ul>
-</section>
 
+  <section class="section stats">
+    <h2>Our Impact So Far</h2>
+    <ul style="display:flex; flex-wrap:wrap; justify-content:space-around; list-style:none; padding:0;">
+      <li><strong>5,000+</strong> Registered Students</li>
+      <li><strong>40,000+</strong> Questions Practiced</li>
+      <li><strong>92%</strong> Reported Score Improvement</li>
+    </ul>
+  </section>
 
   <section class="section about">
     <h2>About Us</h2>
     <p>
-      Testifyy is your smart study partner, helping aspirants succeed in competitive government exams. Our mission is to make learning effective, personalized, and accessible through the power of artificial intelligence.
+      Testifyy is your smart study partner, helping aspirants succeed in competitive government exams. Our mission is to make learning effective, personalized, and accessible through AI.
     </p>
   </section>
 
   <section class="section testimonials">
     <h2>What Students Say</h2>
     <blockquote>
-      "I cleared my TNPSC Group II with Testifyy. The AI assistant helped me understand doubts instantly!" – Ramya, Tamil Nadu
+      "I cleared TNPSC Group II with Testifyy. AI assistant helped me understand doubts instantly!" – Ramya, Tamil Nadu
     </blockquote>
     <blockquote>
-      "Mock tests were very similar to real exams. Highly recommended." – Arvind, Chennai
+      "Mock tests were similar to real exams. Highly recommended." – Arvind, Chennai
     </blockquote>
   </section>
 
-  <section class="section exam-form" id="exam">
+  <section class="section exam-form">
     <h2>Ready to Practice?</h2>
     <p>Start your AI-powered mock exam experience now.</p>
     <a href="/start-exam" class="cta-button">Go to Start Exam Page</a>

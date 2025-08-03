@@ -1,217 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Testifyy Blog - Latest Exam Tips & Updates</title>
-  <meta name="description" content="Explore Testifyy's blog for exam preparation tips, AI learning insights, TNPSC, SSC, UPSC, RRB updates, and government exam news. Find articles on syllabus, strategy, and more." />
-  
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4605579560460422" crossorigin="anonymous"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-4605579560460422",
-      enable_page_level_ads: true
-    });
-  </script>
-
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: #f9fafb;
-      color: #1f2937;
-    }
-    header {
-      background: #4f46e5;
-      color: white;
-      text-align: center;
-      padding: 30px 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    header h1 {
-      font-size: 2.5rem;
-      margin: 0;
-    }
-    header p {
-      font-size: 1.1rem;
-      margin-top: 10px;
-      font-weight: 300;
-    }
-    nav {
-      background: #3730a3;
-      text-align: center;
-      padding: 10px;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 15px;
-      padding: 5px 0;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-    nav a:hover {
-      color: #c7d2fe;
-    }
-    .container {
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 20px;
-    }
-    h2 {
-      color: #4f46e5;
-      text-align: center;
-      margin-bottom: 30px;
-      font-size: 2rem;
-    }
-    .blog-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-    }
-    .blog-card {
-      background: white;
-      padding: 25px;
-      border-radius: 16px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      text-decoration: none;
-      color: inherit;
-    }
-    .blog-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
-    }
-    .blog-card h3 {
-      color: #4f46e5;
-      margin-top: 0;
-      font-size: 1.4rem;
-      line-height: 1.4;
-    }
-    .blog-card p {
-      font-size: 15px;
-      color: #374151;
-      line-height: 1.7;
-    }
-    .read-more {
-      margin-top: 15px;
-      color: #2563eb;
-      text-decoration: none;
-      font-weight: 600;
-      align-self: flex-start;
-    }
-    .read-more:hover {
-      color: #1e40af;
-      text-decoration: underline;
-    }
-    footer {
-      background: #1f2937;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      margin-top: 50px;
-      font-size: 14px;
-    }
-    footer a {
-      color: #4f46e5;
-      margin: 0 8px;
-      text-decoration: none;
-    }
-    footer a:hover {
-      text-decoration: underline;
-    }
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2rem;
-      }
-      .container {
-        padding: 10px;
-        margin: 20px auto;
-      }
-      nav a {
-        display: block;
-        margin: 10px 0;
-      }
-      .blog-card {
-        padding: 20px;
-      }
-    }
-  </style>
+  <meta charset="UTF-8">
+  <title>Exam Result | SmartKalvi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-gray-900 text-white min-h-screen flex items-center justify-center px-4 py-6">
 
-  <header>
-    <h1>Testifyy Blog</h1>
-    <p>Latest Exam Updates & Smart Preparation Tips</p>
-  </header>
+  <div class="bg-gray-800 rounded-2xl shadow-xl w-full max-w-md sm:max-w-lg md:max-w-2xl p-6 sm:p-8 space-y-6">
+    <!-- Heading -->
+    <h1 class="text-2xl sm:text-3xl font-bold text-center text-green-400">🎉 Exam Completed!</h1>
 
-  <nav>
-    <a href="/">Home</a>
-    <a href="/about.html">About</a>
-    <a href="/blog.html">Blog</a>
-    <a href="/privacy-policy.html">Privacy</a>
-    <a href="/terms.html">Terms</a>
-    <a href="/contact.html">Contact</a>
-  </nav>
+    <!-- Score Section -->
+    <div class="text-center">
+      <div class="text-lg sm:text-xl font-semibold">
+        ✅ Your Score:
+        <span class="text-2xl text-blue-300">{{ score }}</span> /
+        <span class="text-2xl text-white">{{ total }}</span>
+      </div>
+    </div>
 
-  <div class="container">
-    <h2>Our Latest Articles</h2>
-    <div class="blog-list">
-      
-      <a href="/blog1.html" class="blog-card">
-        <div>
-          <h3>Top 5 TNPSC Exam Preparation Tips for 2025</h3>
-          <p>Discover proven strategies for smart practice, consistency, and overcoming exam fear to ace the TNPSC exams this year. Our expert guide helps you start strong.</p>
-        </div>
-        <span class="read-more">Read More →</span>
+    <!-- Weak Areas -->
+    {% if weak_areas %}
+    <div class="bg-red-500/10 p-4 rounded-xl border border-red-400">
+      <h2 class="text-base sm:text-lg font-semibold text-red-400 mb-2">⚠️ Weak Areas</h2>
+      <ul class="list-disc list-inside text-red-200 text-sm sm:text-base">
+        {% for area in weak_areas %}
+        <li>{{ area }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% else %}
+    <div class="bg-green-500/10 p-4 rounded-xl border border-green-400 text-green-200 text-center">
+      🏆 Great job! You have no weak areas.
+    </div>
+    {% endif %}
+
+    <!-- Review Button -->
+    <div class="text-center">
+      <a href="{{ url_for('review_answers') }}"
+         class="inline-block w-full sm:w-auto text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-xl transition">
+        🔍 Review Your Answers
       </a>
-
-      <a href="/ai-in-exam-prep.html" class="blog-card">
-        <div>
-          <h3>How AI is Revolutionizing Exam Preparation</h3>
-          <p>Learn how AI-powered platforms like Testifyy use personalized, adaptive learning to make your study sessions more efficient and effective than ever before.</p>
-        </div>
-        <span class="read-more">Read More →</span>
-      </a>
-
-      <a href="/mock-test-tips.html" class="blog-card">
-        <div>
-          <h3>Quick Tips to Improve Your Mock Test Scores</h3>
-          <p>Identify common mistakes and apply simple techniques to boost your performance in mock tests, leading to higher confidence and better results in the real exam.</p>
-        </div>
-        <span class="read-more">Read More →</span>
-      </a>
-
-      <a href="/upsc-prelims-books.html" class="blog-card">
-        <div>
-          <h3>📚 Best Books for UPSC Prelims 2025-26</h3>
-          <p>A curated list of essential books for UPSC Civil Services Prelims. Build your foundation with these recommended resources for General Studies and CSAT.</p>
-        </div>
-        <span class="read-more">Read More →</span>
-      </a>
-
-      <a href="/rrb-ntpc-strategy.html" class="blog-card">
-        <div>
-          <h3>RRB NTPC Preparation Strategy: A 3-Month Plan</h3>
-          <p>Follow our structured 90-day plan to cover the entire RRB NTPC syllabus. This guide covers daily study targets, revision schedules, and more.</p>
-        </div>
-        <span class="read-more">Read More →</span>
-      </a>
-
     </div>
   </div>
-
-  <footer>
-    &copy; 2025 Testifyy. All rights reserved. |
-    <a href="/">Home</a> |
-    <a href="/about.html">About</a> |
-    <a href="/privacy-policy.html">Privacy Policy</a> |
-    <a href="/terms.html">Terms & Conditions</a> |
-    <a href="/contact.html">Contact</a>
-  </footer>
 
 </body>
 </html>
